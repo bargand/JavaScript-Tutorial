@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul{
+    display: flex;
+    background: red;
+    color: white;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+ul li{
+    list-style: none;
+    margin: 0px 23px;
+    cursor: pointer;
+}
+.container{
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+    color: green;
+    margin: auto;
+    width: 90vw;
+}
+.container h1{
+    margin: auto;
+}
+.container p{
+    margin: auto;
+    padding: 20px;
+}
+code{
+    margin: auto;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    background: black;
+    color: green;
+    font-size: 20px;
+    padding: 20px;
+}

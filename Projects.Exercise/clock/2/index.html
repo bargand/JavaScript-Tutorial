@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Analog Clock</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; }
+        canvas { border: 2px solid #333; }
+    </style>
+</head>
+<body>
+    <canvas id="clockCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("clockCanvas");
+        const ctx = canvas.getContext("2d");
+        const radius = canvas.height / 2;
+
+        // Center the clock in the canvas
+        ctx.translate(radius, radius);
+        radius *= 0.9;
+
+        // Function to draw the clock
+        const drawClock = () => {
+            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        };
+
+        // Function to draw the clock face
+        const drawFace = (context, radius) => {
+            context.beginPath();
+            context.arc(0, 0, radius, 0, 2 * Math.PI);
+            context.fillStyle = "#f0f0f0"; // Background color
+            context.fill();
+            context.lineWidth = 2;
+            context.strokeStyle = "#333";
+            context.stroke();
+            context.beginPath();
+            context.arc(0, 0, radius * 0.05, 0, 2 * Math.PI);
+            context.fillStyle = "#333"; // Center dot color
+            context.fill();
+        };
+
+        // Function to draw the clock numbers
+        const drawNumbers = (context, radius) => {
+            context.font = radius * 0.15 + "px Arial";
+            context.textBaseline = "middle";
+            context.textAlign = "center";
+            for (let num = 1; num <= 12; num++) {
+                const angle = (num * Math.PI) / 6;
+                const x = radius * 0.8 * Math.cos(angle);
+                const y = radius * 0.8 * Math.sin(angle);
+                context.fillText(num.toString(), x, y);
+            }
+        };
+
+        // Function to draw the clock time
+        const drawTime = (context, radius) => {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+
+            // Draw hour hand
+            const hourAngle = (hour % 12) * (Math.PI / 6) + (minute * Math.PI / 360);
+            drawHand(context, hourAngle, radius * 0.5, radius * 0.07);
+
+            // Draw minute hand
+            const minuteAngle = (minute * Math.PI / 30) + (second * Math.PI / 1800);
+            drawHand(context, minuteAngle, radius * 0.7, radius * 0.05);
+
+            // Draw second hand
+            const secondAngle = second * Math.PI / 30;
+            drawHand(context, secondAngle, radius * 0.9, radius * 0.02);
+        };
+
+        // Function to draw clock hands
+        const drawHand = (context, angle, length, width) => {
+            context.beginPath();
+            context.lineWidth = width;
+            context.lineCap = "round";
+            context.moveTo(0, 0);
+            context.rotate(angle);
+            context.lineTo(0, -length);
+            context.stroke();
+            context.rotate(-angle);
+        };
+
+        // Start the clock animation
+        setInterval(drawClock, 1000);
+    </script>
+</body>
+</html>
