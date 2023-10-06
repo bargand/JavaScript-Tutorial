@@ -52,3 +52,5 @@ function squ (number){
     return number*number;
 }
 console.log(`the squre of 5 is ${squ(5)}`);
+
+
