@@ -53,4 +53,5 @@ else{
 
 console.log("Driving Eligibility Test")
 let age = prompt("Enter Your Age: ")
-console.log (age>=18? "Yes, You Are Eligible For Driving" : "No, You Are eligible for Video Car Driving")
+// console.log (age>=18? "Yes, You Are Eligible For Driving" : "No, You Are eligible for Video Car Driving")
+alert (age>=18? "Yes, You Are Eligible For Driving" : "No, You Are eligible for Video Car Driving")
