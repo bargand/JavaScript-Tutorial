@@ -4,7 +4,7 @@ document.title = "Bargand"
 //insert an text with DOM
 document.getElementById("DomManupulation").innerHTML = "Hello"
 
-//Insert some CSS in HTML wirh DOM
+//Insert some CSS in HTML with DOM
 document.getElementById("DomManupulation").style.backgroundColor = "red"
 
 document.getElementById("DomManupulation").style.marginRight = "10px"

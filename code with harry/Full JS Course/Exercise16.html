@@ -1,0 +1,72 @@
+<!-- // given 5 boxes, asign a random color and a random background to each box using DOM concepts. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Color</title>
+    <style>
+      .ParentCointainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ParentCointainer">
+      <div class="box">BOX</div>
+      <div class="box">BOX</div>
+      <div class="box">BOX</div>
+      <div class="box">BOX</div>
+      <div class="box">BOX</div>
+    </div>
+
+    <script>
+      //generate random background color
+
+      //first call the childrens
+      let boxes = document.getElementsByClassName("box");
+
+      //then create a function for random color generator
+      /*
+      function generateRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      var randomColor = generateRandomColor();
+      console.log(randomColor);
+    */
+
+    function getRandomColor(){
+        let val1 = Math.ceil(0+ Math.random()*255)
+        let val2 = Math.ceil(0+ Math.random()*255)
+        let val3 = Math.ceil(0+ Math.random()*255)
+        return `rgb(${val1}, ${val2}, ${val3})`
+    }
+
+      //then creata function where the boxes color have been changed
+      Array.from(boxes).forEach((e) => {
+        e.style.backgroundColor = getRandomColor();
+        e.style.color = getRandomColor();
+      });
+    </script>
+  </body>
+</html>

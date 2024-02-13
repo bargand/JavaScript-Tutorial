@@ -65,6 +65,7 @@ for (let i = 0; i < arr.length; i++) {
 //javascript map method
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+*/
 
 // let NewArr = []
 
@@ -83,7 +84,6 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     });
     console.log(NewArr);
     
-*/
 /*
 //filter Method
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
