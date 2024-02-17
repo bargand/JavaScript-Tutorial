@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inserting and remove element</title>
+    <style>
+        .con1{
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container con con1 con2 con3">
+      <div class="box" data-createdby="bargand">
+        <p >Debargha nandi</p>
+      </div>
+      <div class="LastBox" style="display: flex; justify-content: center"></div>
+    </div>
+
+    <script>
+      /*
+        //when we wtite this then the inner html's first element's html change thats why it change into debargha nandi to riyanandi
+        let a = document.querySelector(".box").innerHTML = "Riya Nandi"
+        console.log(a)
+        //when we want to know all arrtibutes
+        let att = document.querySelector(".container").attributes
+        console.log(att)
+        //when we check an element in a html container
+        let b = document.querySelector(".box").hasAttribute("style")
+        console.log(b)
+        let c = document.querySelector(".LastBox").hasAttribute("style")
+        console.log(c)
+        //when we have to be seen the attribute then we call this, 
+        let d = document.querySelector(".LastBox").getAttribute("style")
+        console.log(d)
+        //set attribute can sen the attribute what we provide
+        let e = document.querySelector(".box").setAttribute("style" , "color: red")
+        //remove all attribute in an element
+        let f = document.querySelector(".box").removeAttribute("style")
+        //when we change the web text or design without inspect the html
+        document.designMode = "on"
+        */
+
+        /*
+      //set attribute and its inserted
+      let div = document.createElement("div");
+      div.innerHTML = "<b>Hi i am a good boy, please agery</b>";
+      div.setAttribute("class", "created");
+      // document.querySelector(".container").prepend(div)  //container er vitore age
+    //   document.querySelector(".container").append(div);  //container er vitore pore
+    //   document.querySelector(".container").before(div);  //body er vitore kintu container er baire age
+       document.querySelector(".container").after(div);   //body er vitore kintu container er baire pore
+       */
+
+       /*
+    //insert in html
+    //agter begin method
+    let cont = document.querySelector(".container")
+    // cont.insertAdjacentHTML("afterend", "Hello")
+    // cont.insertAdjacentHTML("afterbegin", "Hello")
+    // cont.insertAdjacentHTML("beforebegin", "hello")
+    cont.insertAdjacentHTML("beforeend", "hello")
+    */
+/*
+    //classList and className
+    let clss = document.querySelector(".container").classList
+    console.log(clss)
+    let clssn = document.querySelector(".container").className
+    console.log(clssn)
+    //when we want to add or remove the class list
+    document.querySelector(".container").classList.add("debargha")
+    document.querySelector(".container").classList.remove("con3")
+*/
+    //toggel method, when an attribute is on then toggel can of it and when it off then toggel can on it
+    document.querySelector(".container").classList.toggle("con4")
+    </script>
+  </body>
+</html>
