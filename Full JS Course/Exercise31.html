@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design a youtube card</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column;
+        background-color: red;
+      }
+      .card {
+        width: 80%;
+        height: 100px;
+        display: flex;
+        background-color: yellow;
+        border: none;
+        border-radius: 15px;
+        padding: 10px;
+      }
+      .cardleft {
+        width: 20%;
+        display: flex;
+      }
+      .cardleft p {
+        margin: 60px 0px 0px -43px;
+        font-size: 15px;
+        font-weight: 600;
+        background-color: #000;
+        color: #fff;
+      }
+      .cardright {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+      }
+      .cardright1 h1 {
+        font-size: 20px;
+      }
+      .cardright2 {
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        gap: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" id="1">
+        <div class="cardleft" id="LeftCard">
+          <img
+            id="LeftCardIMG"
+            src=""
+            alt=""
+          />
+          <p id="time"></p>
+          <!--this is new time-->
+        </div>
+        <div class="cardright" id="RightCard">
+          <div class="cardright1" id="RightCard1">
+            <h1 class="cardright1h1" id="RightCardH1"></h1>
+            <!--this is newHeading-->
+          </div>
+          <div class="cardright2" id="RightCard2">
+            <p id="creator"></p>
+            <!--this is newCreator-->
+            <p id="views"></p>
+            <!--this is newView-->
+            <p id="duretion"></p>
+            <!--this is newDuration-->
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="2">
+        <div class="cardleft" id="LeftCard">
+          <img
+            id="LeftCardIMG"
+            src=""
+            alt=""
+          />
+          <p id="time"></p>
+          <!--this is new time-->
+        </div>
+        <div class="cardright" id="RightCard">
+          <div class="cardright1" id="RightCard1">
+            <h1 class="cardright1h1" id="RightCardH1"></h1>
+            <!--this is newHeading-->
+          </div>
+          <div class="cardright2" id="RightCard2">
+            <p id="creator"></p>
+            <!--this is newCreator-->
+            <p id="views"></p>
+            <!--this is newView-->
+            <p id="duretion"></p>
+            <!--this is newDuration-->
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="3">
+        <div class="cardleft" id="LeftCard">
+          <img
+            id="LeftCardIMG"
+            src=""
+            alt=""
+          />
+          <p id="time"></p>
+          <!--this is new time-->
+        </div>
+        <div class="cardright" id="RightCard">
+          <div class="cardright1" id="RightCard1">
+            <h1 class="cardright1h1" id="RightCardH1"></h1>
+            <!--this is newHeading-->
+          </div>
+          <div class="cardright2" id="RightCard2">
+            <p id="creator"></p>
+            <!--this is newCreator-->
+            <p id="views"></p>
+            <!--this is newView-->
+            <p id="duretion"></p>
+            <!--this is newDuration-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let changeContent = (
+        divID,
+        newTime,
+        newHeading,
+        newCreator,
+        newView,
+        newDuration,
+        newImageUrl
+      ) => {
+        let Time = document.getElementById(divID).querySelector("#time");
+        let Heading = document
+          .getElementById(divID)
+          .querySelector("#RightCardH1");
+        let Creator = document.getElementById(divID).querySelector("#creator");
+        let Views = document.getElementById(divID).querySelector("#views");
+        let Duration = document
+          .getElementById(divID)
+          .querySelector("#duretion");
+        let IMGURL = document.getElementById(divID).querySelector("#LeftCardIMG")
+
+        Time.innerHTML = newTime;
+        Heading.innerHTML = newHeading;
+        Creator.innerHTML = newCreator;
+        Views.innerHTML = newView;
+        Duration.innerHTML = newDuration;
+        IMGURL.src = newImageUrl
+      };
+      changeContent(
+        "1",
+        "21:24",
+        "Installing VS Code & How Websites Work | Sigma Web Development Course - Tutorial #1",
+        "Code With Harry",
+        "10.1M",
+        "4 months ago",
+        "https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB0alxLSXCSEPITzWr-XXUiv1oglQ"
+      );
+
+      changeContent(
+        "2",
+        "1:24",
+        "Sigma Web Development Course - Tutorial #2",
+        "Code With Harry",
+        "172K",
+        "3 months ago",
+        "https://i.ytimg.com/vi/kJEsTjH5mVg/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBTa4i6NuryzZhcPo7BkCK1G6PqGg"
+      );
+
+      changeContent(
+        "3",
+        "20:19",
+        "Installing VS Code & How Websites Work Tutorial #3",
+        "Code With Harry",
+        "1M",
+        "2 months ago",
+        "https://i.ytimg.com/vi/BGeDBfCIqas/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAjPtvUdoA1O40DUFC8U1NdTYLk1g"
+      );
+    </script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Content Change</title>
+</head>
+<body>
+
+<div id="1">
+  <h1 id="heading1">Heading 1</h1>
+  <p id="paragraph1">Paragraph 1</p>
+</div>
+
+<div id="2">
+  <h1 id="heading2">Heading 2</h1>
+  <p id="paragraph2">Paragraph 2</p>
+</div>
+
+<script>
+function changeContent(divId, newHeading, newParagraph) {
+  var heading = document.getElementById(divId).querySelector("h1");
+  var paragraph = document.getElementById(divId).querySelector("p");
+  
+  heading.innerText = newHeading;
+  paragraph.innerText = newParagraph;
+}
+
+// Example of changing content for the first div
+changeContent("1", "New Heading for Div 1", "New Paragraph for Div 1");
+
+// Example of changing content for the second div
+changeContent("2", "New Heading for Div 2", "New Paragraph for Div 2");
+</script>
+
+</body>
+</html> -->
