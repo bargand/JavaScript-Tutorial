@@ -1,7 +1,14 @@
+let title = prompt("enter the title: ")
+let cName = prompt("enter the creator name: ")
+let views = parseInt(prompt("enter the views number: "))
+let monthsOld = parseInt(prompt("enter the months old: "))
+let duration = prompt("video duration : ")
+let thumbnail = prompt("enter your thambnail url: ")
+
 let createCard = (title, cName, views, monthsOld, duration, thumbnail) => {
   let viewStr;
-  if (views < 1000000) {
-    viewStr = views / 1000 + "K";
+  if (views < 1000) {
+    viewStr = views;
   } else if (views > 1000000) {
     viewStr = views / 1000000 + "M";
   } else {
@@ -18,13 +25,13 @@ let createCard = (title, cName, views, monthsOld, duration, thumbnail) => {
     </div>
 </div>`;
 
-  document.querySelector(".container").innerHTML = html;
+  document.querySelector(".container").innerHTML = document.querySelector(".container").innerHTML + html;
 };
 
 createCard(
   "Installing VS Code & How Websites Work | Sigma Web Development Course - Tutorial #1",
   "Code With Harry",
-  100000000,
+  10,
   2,
   "21:31",
   "https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB0alxLSXCSEPITzWr-XXUiv1oglQ"
@@ -46,4 +53,12 @@ createCard(
   4,
   "11:12",
   "https://i.ytimg.com/vi/BGeDBfCIqas/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAjPtvUdoA1O40DUFC8U1NdTYLk1g"
+);
+createCard(
+    title,
+    cName,
+    views,
+    monthsOld,
+    duration,
+    thumbnail
 );
