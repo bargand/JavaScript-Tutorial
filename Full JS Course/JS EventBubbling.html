@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .parentContainer{
+            background-color: yellow;
+            padding: 34px;
+            margin: 34px;
+        }
+        .Parent{
+            background-color: rgb(9, 255, 0);
+            padding: 34px;
+            margin: 34px;
+        }
+        .ChildContainer{
+            background-color: rgb(255, 0, 0);
+            padding: 34px;
+            margin: 34px;
+        }
+        .Child{
+            background-color: rgb(4, 0, 255);
+            padding: 34px;
+            margin: 34px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parentContainer">
+        <div class="Parent">
+            <div class="ChildContainer">
+                <div class="Child"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".parentContainer").addEventListener("click", ()=>{
+            alert("parentContainer was clicked")
+        })
+        document.querySelector(".Parent").addEventListener("click", ()=>{
+            alert("Parent was clicked")
+        })
+        document.querySelector(".ChildContainer").addEventListener("click", ()=>{
+            alert("ChildContainer was clicked")
+        })
+        document.querySelector(".Child").addEventListener("click", (e)=>{
+            e.stopPropagation()
+            alert("Child was clicked")
+        })
+    </script>
+</body>
+</html>
+
+<!-- this is event bubbling, when the child was clicked then we say technically that the parent containers was also chicked. because when we live in hooghly>under west bengal>under india>under ashia, then we also say that when child was clicked the parent was automatically clicked. 
+
+now when we want the child was chicked but parent was not clicked then we stop the propagation , like child class in upper
+-->

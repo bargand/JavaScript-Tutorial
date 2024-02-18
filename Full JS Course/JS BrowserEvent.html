@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Event</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box">BOX</div>
+      <div id="box2"></div>
+    </div>
+    <button id="btn">Change containt</button>
+
+    <script>
+      let button = document.getElementById("btn");
+      button.addEventListener("dblclick", () => {
+        document.getElementById("box").innerHTML = "containt changed";
+        document.querySelector("#box2").innerHTML = "add the text";
+        // alert("i was clicked");
+        // confirm("are you sure??");
+      });
+    </script>
+  </body>
+</html>

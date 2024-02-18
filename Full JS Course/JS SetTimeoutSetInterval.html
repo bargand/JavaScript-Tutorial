@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>settimeout and setInterval</title>
+    <style>
+      .parentContainer {
+        background-color: yellow;
+        padding: 34px;
+        margin: 34px;
+      }
+      .Parent {
+        background-color: rgb(9, 255, 0);
+        padding: 34px;
+        margin: 34px;
+      }
+      .ChildContainer {
+        background-color: rgb(255, 0, 0);
+        padding: 34px;
+        margin: 34px;
+      }
+      .Child {
+        background-color: rgb(4, 0, 255);
+        padding: 34px;
+        margin: 34px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentContainer">
+      <div class="Parent">
+        <div class="ChildContainer">
+          <div class="Child"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelector(".parentContainer")
+        .addEventListener("click", () => {
+          alert("parentContainer was clicked");
+        });
+      document.querySelector(".Parent").addEventListener("click", () => {
+        alert("Parent was clicked");
+      });
+      document
+        .querySelector(".ChildContainer")
+        .addEventListener("click", () => {
+          alert("ChildContainer was clicked");
+        });
+      document.querySelector(".Child").addEventListener("click", (e) => {
+        e.stopPropagation();
+        alert("Child was clicked");
+      });
+
+      //   random color generator
+      function generateRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      let a = setInterval(() => {
+        document.querySelector(".Child").style.background =
+          generateRandomColor();
+      }, 1000);
+      // console.log(a)
+      // clearInterval(a)
+
+      setTimeout(() => {
+        document.querySelector(".Parent").style.background =
+          generateRandomColor();
+      }, 5000);
+    </script>
+  </body>
+</html>
+
+<!-- when we call setinterval thwn it run automatically with his provided time bur settimeout is run once
+
+when we do not want to run those function then we call clearinterval and clear timeout
+-->
