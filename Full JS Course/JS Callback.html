@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callback promises</title>
+  </head>
+  <body>
+    <script>
+      console.log("Debargha nandi");
+      console.log("Tubai");
+      setTimeout(() => {
+        console.log("Riya nandi");
+      }, 2000);
+      console.log("The End");
+
+      //callback function
+      const callback = (arg) => {
+        console.log(arg);
+      };
+
+      let loadScript = (src, callback) => {
+        let sc = document.createElement("script");
+        sc.src = src;
+        sc.onload = callback("debargha tubai nandi");
+        document.head.append(sc);
+      };
+      loadScript("https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js", callback)
+    </script>
+  </body>
+</html>
