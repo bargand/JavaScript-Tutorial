@@ -1,8 +1,10 @@
 /*
-*/
+//code with harry
+
+
 let change = async () => {
     let prom1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
+        setTimeout(() => {
         resolve("I Love You Bargand !!");
     }, 3000);
 });
@@ -11,3 +13,8 @@ console.log(a)
 };
 change()
 
+*/
+
+/*
+//chai our code
+*/
