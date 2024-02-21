@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacking Simulator</title>
+  </head>
+  <body>
+    <!-- create a hacking simulator which has green background and it shows these message with random delay of 1 to 7 sec
+    
+        Initializing Hacking...
+        Reading Your Files...
+        Password files detected...
+        Sending All passwords and personal information files to server...
+        cleaning up...
+
+        the three dots must blink so that it looks like a real terminal
+    -->
+    <div id="mainPara">Hacking Start</div>
+    <script>
+      const strings = ["a", "b", "c", "d"];
+
+      function printStrings(index) {
+        //generate random number with round functionthat can helps 3054 to 4000, 5018 to 6000
+        function generateRandomNumber() {
+          return Math.round((Math.random() * 5000) / 1000) * 1000 + 1000;
+        }
+        const randomNumber = generateRandomNumber();
+        console.log(randomNumber);
+        if (index < strings.length) {
+          setTimeout(() => {
+            let AllTxt = strings[index];
+            document.querySelector("#mainPara").innerHTML = AllTxt;
+            printStrings(index + 1);
+          }, randomNumber);
+        }
+      }
+
+      printStrings(0);
+    </script>
+  </body>
+</html>
