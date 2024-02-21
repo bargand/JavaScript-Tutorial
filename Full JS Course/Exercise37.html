@@ -3,7 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <title>Hacking Simulator</title>
+    <style>
+      body {
+        font-family: "Press Start 2P", system-ui;
+        width: 95vw;
+        height: 95vh;
+        background-color: #000;
+        color: #00ff00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: inline-flex;
+      }
+      .blinktext {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          visibility: hidden;
+        }
+        50% {
+          visibility: hidden;
+        }
+        100% {
+          visibility: visible;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- create a hacking simulator which has green background and it shows these message with random delay of 1 to 7 sec
@@ -13,12 +50,22 @@
         Password files detected...
         Sending All passwords and personal information files to server...
         cleaning up...
-
+        
         the three dots must blink so that it looks like a real terminal
     -->
-    <div id="mainPara">Hacking Start</div>
+    <div class="container">
+      <p id="mainPara">Hacking Start</p>
+      <p class="blinktext">...</p>
+    </div>
     <script>
-      const strings = ["a", "b", "c", "d"];
+      const strings = [
+        "Initializing Hacking",
+        "Reading Your Files",
+        "Password files detected",
+        "Sending All passwords and personal information files to server",
+        "cleaning up",
+        "You Are Hacked",
+      ];
 
       function printStrings(index) {
         //generate random number with round functionthat can helps 3054 to 4000, 5018 to 6000
@@ -35,7 +82,6 @@
           }, randomNumber);
         }
       }
-
       printStrings(0);
     </script>
   </body>
