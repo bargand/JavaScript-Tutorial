@@ -1,0 +1,29 @@
+<!-- make a heading and a  button , the heading is change automatically after 3sec but when you click the button it can not change -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async & Await Exercise</title>
+  </head>
+  <body>
+    <h1 id="mainHeading">Course By Bargand</h1>
+    <button id="mainButton">Stop To Exicute</button>
+    <script>
+      const nameChange = () => {
+        document.querySelector("#mainHeading").innerHTML = "Debargha nandi";
+      };
+      const stopExi = setTimeout(nameChange, 3000);
+      //this 18 to 23 line code is similar to 24 to 26 line code
+      let stop = () => {
+        document.querySelector("#mainButton").addEventListener("click", () => {
+          clearTimeout(stopExi);
+        });
+      };
+      stop();
+      // document.querySelector("#mainButton").addEventListener('click', ()=>{
+      //     clearTimeout(stopExi)
+      // })
+    </script>
+  </body>
+</html>

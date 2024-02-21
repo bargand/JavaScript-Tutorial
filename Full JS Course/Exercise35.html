@@ -1,0 +1,33 @@
+<!-- make a paragraph and 2  button , the paragraph is change automatically(setinterval) after 3sec when i click the change button and heading is not changed when i click stop button -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval Exercise</title>
+</head>
+<body id="Mbody">
+    <p id="mainPara"></p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+        let stopExi;
+
+        function startTime() {
+            const today = new Date();
+            let s = today.getSeconds();
+            document.querySelector("#mainPara").innerHTML = s;
+        }
+
+        document.querySelector("#start").addEventListener("click", () => {
+            stopExi = setInterval(startTime, 1000);
+        });
+
+        document.querySelector("#stop").addEventListener("click", () => {
+            clearInterval(stopExi);
+        });
+    </script>
+</body>
+</html>
+
