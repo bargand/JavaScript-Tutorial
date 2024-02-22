@@ -14,10 +14,10 @@ let x = 3;
 function errorhandling() {
   try {
     console.log(sum * x);
-    return true
+    return true;
   } catch (error) {
     console.log("error aya hai gate kholo...");
-    return false
+    return false;
   } finally {
     console.log("your code is exicuted succesfully");
   }
