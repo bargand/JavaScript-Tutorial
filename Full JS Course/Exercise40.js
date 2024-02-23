@@ -2,18 +2,19 @@
 
 
 
-function checkRange(num1, num2) {
-    // Check if num1 is in the specified ranges
-    if ((num1 >= 40 && num1 <= 60) || (num1 >= 70 && num1 <= 100)) {
-        // Check if num2 is in the specified ranges
-        if ((num2 >= 40 && num2 <= 60) || (num2 >= 70 && num2 <= 100)) {
-            return true; // Both numbers are in the specified ranges
-        }
+function numbers_ranges(x, y) {
+    if ((x >= 40 && x <= 60 && y >= 40 && y <= 60) 
+        || 
+        (x >= 70 && x <= 100 && y >= 70 && y <= 100))
+       {
+      return true;
+       } 
+      else 
+       {
+      return false;
     }
-    return false; // At least one of the numbers is not in the specified ranges
-}
-
-// Test cases
-console.log(checkRange(44, 56)); // Output: true
-console.log(checkRange(70, 95)); // Output: false
-console.log(checkRange(50, 89)); // Output: false
+  }
+  
+  console.log(numbers_ranges(44, 56));
+  console.log(numbers_ranges(70, 95));
+  console.log(numbers_ranges(50, 89));
