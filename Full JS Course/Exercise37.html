@@ -70,7 +70,7 @@
       function printStrings(index) {
         //generate random number with round functionthat can helps 3054 to 4000, 5018 to 6000
         function generateRandomNumber() {
-          return Math.round((Math.random() * 5000) / 1000) * 1000 + 1000;
+          return Math.round(Math.random() * 5000 + 1000);
         }
         const randomNumber = generateRandomNumber();
         console.log(randomNumber);
