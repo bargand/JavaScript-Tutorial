@@ -154,7 +154,7 @@ promise.then((resust)=>{
 */
 
 //example2
-
+/*
 const factData = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -167,10 +167,180 @@ const factData = () => {
 console.log("facthing data1...");
 let promise = factData();
 promise
-  .then((res) => {
+.then((res) => {
+  console.log(res);
+})
+.catch((err) => {
+  console.log(TypeError("error occured"));
+  console.log(err);
+});
+*/
+
+//example3
+/*
+const getData2 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data 2");
+      reject("error");
+    }, 3000);
+  });
+};
+let promise = getData2();
+console.log('fatching your data......')
+promise
+.then((result) => {
+  console.log(result);
+})
+.catch((error) => {
+  console.log(error);
+});
+*/
+
+//promises chain
+
+/*
+const asyncFunc1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data 1");
+      resolve("success");
+    }, 3000);
+  });
+};
+const asyncFunc2 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data 2");
+      resolve("success");
+    }, 3000);
+  });
+};
+const asyncFunc3 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data 3");
+      resolve("success");
+    }, 3000);
+  });
+};
+
+console.log("fatching data 1...");
+let p1 = asyncFunc1();
+p1.then((res) => {
+  console.log(res);
+  console.log("fatching data 2...");
+  let p2 = asyncFunc2();
+  p2.then((res) => {
     console.log(res);
-  })
-  .catch((err) => {
-    console.log(TypeError("error occured"));
+    console.log("fatching data 3...");
+    let p3 = asyncFunc3();
+    p3.then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }).catch((err) => {
     console.log(err);
   });
+}).catch((err) => {
+  console.log(err);
+});
+*/
+//this code is write in the another way
+/*
+console.log('fatching data 1...')
+asyncFunc1().then((res)=>{
+  console.log(res)
+  console.log('fatching data 2...')
+  asyncFunc2().then((res)=>{
+    console.log(res)
+    console.log('fatching data 3...')
+    asyncFunc3().then((res)=>{
+      console.log(res)
+
+    })
+  })
+})
+*/
+
+//actual promise chain
+//j kaj ta call back hell die korchilam sei kaj tai promise chain die korlam.
+/*
+const getData = (dataId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(`data ${dataId} is here`);
+      resolve("success");
+    }, 3000);
+  });
+};
+console.log('fatching data 1...')
+getData(1)
+  .then(() => {
+    console.log('fatching data 2...')
+    return getData(2);
+  })
+  .then(() => {
+    console.log('fatching data 3...')
+    return getData(3);
+  })
+  .then(() => {
+    console.log('fatching data 4...')
+    return getData(4);
+  })
+  .then((res) => {
+    console.log(res);
+  });
+*/
+
+//async and await
+
+/*
+let hello = async()=>{
+  setTimeout(() => {
+    console.log('data1')
+  }, 1000);
+}
+
+let getHello = async()=>{
+  await hello()
+}
+getHello()
+*/
+
+//jeta amra callback hell die korchilam seta async await die korlam
+let ApiPushData = async (dataId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(`data ${dataId}`);
+      resolve();
+    }, 1000);
+  });
+};
+/*
+ */
+let ApiGetData = async () => {
+  console.log("fatch data 1...");
+  await ApiPushData(1);
+  console.log("fatch data 2...");
+  await ApiPushData(2);
+  console.log("fatch data 3...");
+  await ApiPushData(3);
+  console.log("fatch data 4...");
+  await ApiPushData(4);
+};
+ApiGetData();
+
+//await call korar jonno akta function likhte hoi, function na likhe await sochorachor bebohar kora jai na, kintu advanced JS er moddhe akta term ase IIFE jeta die functon call na kore await call kora jai.
+
+setTimeout(() => {
+  (async function () {
+    console.log("fatch data 5...");
+    await ApiPushData(5);
+    console.log("fatch data 6...");
+    await ApiPushData(6);
+    console.log("fatch data 7...");
+    await ApiPushData(7);
+  })();
+}, 5000);

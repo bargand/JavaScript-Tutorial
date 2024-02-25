@@ -1,4 +1,4 @@
-//IIFE = iimmidietly invoke function
+//IIFE = immediately invoked function expression.
 
 let sleep = async () => {
   return new Promise((resolve, reject) => {
