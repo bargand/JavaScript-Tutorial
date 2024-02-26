@@ -10,12 +10,12 @@ print()
 
 //write a JS programme to find average of numbers in any array using spread syntsx.
 
-const numbers = [2, 3, 3, 5, 7, 10];
+const ArrayNmbers = [2,3,3,5,7,10]
 
-function sum(...args) {
-  return args.reduce((a, b) => a + b, 0);
+let sum =(...argu)=>{
+    return argu.reduce((a, b) => a+b, 0)
 }
+let a = sum(...ArrayNmbers)
+let b = ArrayNmbers.length
 
-let a = sum(...numbers)
-let b = numbers.length
-console.log(`The average of [${numbers}] array is = ${a / b}`)
+console.log(a/b)
