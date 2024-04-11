@@ -63,3 +63,6 @@ if (color2 == "yellow") {
 if (color2 == "violet") {
   document.getElementById("BodyColor").style.background = "violet"
 }
+else{
+  document.getElementById("BodyColor").style.background = "black"
+}
