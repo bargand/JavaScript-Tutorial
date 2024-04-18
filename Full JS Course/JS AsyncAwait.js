@@ -1,4 +1,5 @@
 /*
+*/
 //code with harry
 
 
@@ -13,7 +14,6 @@ console.log(a)
 };
 change()
 
-*/
 
 /*
 //chai our code
