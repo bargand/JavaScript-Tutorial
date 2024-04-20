@@ -1,7 +1,12 @@
 const express = require("express");
+const blog = require('./routes/blog')
+const about = require('./routes/about')
+
 const app = express();
 const port = 3000;
 app.use(express.static("public"));
+app.use('/blog', blog)
+app.use('/about', about)
 
 app.get("/", (req, res) => {
   console.log("Hi I am Get Request");
