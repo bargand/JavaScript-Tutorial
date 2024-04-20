@@ -7,7 +7,6 @@ fs.writeFile("debu.txt", "debargha is a good boy", () => {
   fs.readFile("debu.txt", (error, data) => {
     console.log(error, data.toString());
   });
-  fs.copyFile("debu.txt");
 });
 
 console.log("file is created");
