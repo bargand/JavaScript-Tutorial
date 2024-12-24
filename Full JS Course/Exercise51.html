@@ -13,40 +13,39 @@
 
     <script>
       // console.log(navigator.geolocation.getCurrentPosition)
-      const show_dtls = document.querySelector(".show_dtls")
+      const show_dtls = document.querySelector(".show_dtls");
 
       //api to get user address
-        let apiEndpoint = "https://api.opencagedata.com/geocode/v1/json?"
-        let apiKey = "c46e0ce994cc447ab04547ea8ca4bf92"
-        
-        const getUserCurrentAddress = async (lattitude, longigitude) =>{
-            // console.log(lattitude)
-            // console.log(longigitude)
-            let query = `${lattitude},${longigitude}`
-            //https://api.opencagedata.com/geocode/v1/json?key=c46e0ce994cc447ab04547ea8ca4bf92&q=52.3877830%2C9.7334394&pretty=1
-            let apiUrl = `${apiEndpoint}?key=${apiKey}&q=${query}&pretty=1`
+      let apiEndpoint = "https://api.opencagedata.com/geocode/v1/json?";
+      let apiKey = "c46e0ce994cc447ab04547ea8ca4bf92";
 
-            try {
-                const res = await fetch(apiUrl)
-                const data = await res.json()
-                console.log(data)
-            } catch (error) {
-                console.log(error)
-            }
-        
-      }
+      const getUserCurrentAddress = async (lattitude, longigitude) => {
+        // console.log(lattitude)
+        // console.log(longigitude)
+        let query = `${lattitude},${longigitude}`;
+        //https://api.opencagedata.com/geocode/v1/json?key=c46e0ce994cc447ab04547ea8ca4bf92&q=52.3877830%2C9.7334394&pretty=1
+        let apiUrl = `${apiEndpoint}?key=${apiKey}&q=${query}&pretty=1`;
+
+        try {
+          const res = await fetch(apiUrl);
+          const data = await res.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
       document.querySelector(".geo-btn").addEventListener("click", () => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
             (position) => {
-            //   console.log(`The altitude is ${position.coords.altitude}`);
-            //   console.log(`The latitude is ${position.coords.latitude}`);
-            //   console.log(`The longitude is ${position.coords.longitude}`);
-              const {latitude, longitude} = position.coords
-            //   console.log(`The lattitude and longigitude is ${latitude}`)
-              show_dtls.textContent = (`The lattitude is ${latitude} and longitude is ${longitude}`)
+              //   console.log(`The altitude is ${position.coords.altitude}`);
+              //   console.log(`The latitude is ${position.coords.latitude}`);
+              //   console.log(`The longitude is ${position.coords.longitude}`);
+              const { latitude, longitude } = position.coords;
+              //   console.log(`The lattitude and longigitude is ${latitude}`)
+              show_dtls.textContent = `The lattitude is ${latitude} and longitude is ${longitude}`;
 
-              getUserCurrentAddress(latitude, longitude)
+              getUserCurrentAddress(latitude, longitude);
             },
             (error) => {
               console.log(error.message);

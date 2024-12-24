@@ -9,7 +9,6 @@ let Minutes = today.getMinutes();
 let Second = today.getSeconds();
 const Format = today.getDay();
 
-
 let Days = {
   1: "Sunday",
   2: "Monday",
@@ -24,5 +23,4 @@ const dayNumber = today.getDay();
 const dayName = Days[dayNumber];
 
 console.log(`Today is : ${dayName}`);
-console.log(`Current Time Is : ${Hour} : ${Minutes} : ${Second}`)
-
+console.log(`Current Time Is : ${Hour} : ${Minutes} : ${Second}`);
